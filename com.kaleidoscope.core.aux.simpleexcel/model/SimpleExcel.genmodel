@@ -13,6 +13,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//Folder/file"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//Folder/parentFolder"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//Folder/subFolder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Folder/name"/>
     </genClasses>
     <genClasses ecoreClass="SimpleExcel.ecore#//Sheet">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Sheet/sheetId"/>
@@ -23,8 +24,10 @@
     <genClasses ecoreClass="SimpleExcel.ecore#//Cell">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Cell/text"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Cell/backgroundColor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Cell/foregroundColor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Cell/cellComments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Cell/cellId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Cell/rowIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Cell/colIndex"/>
     </genClasses>
     <genClasses image="false" ecoreClass="SimpleExcel.ecore#//ExcelElement"/>
     <genClasses ecoreClass="SimpleExcel.ecore#//RowObject">

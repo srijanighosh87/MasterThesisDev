@@ -206,6 +206,15 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFolder_Name() {
+		return (EAttribute) folderEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSheet() {
 		return sheetEClass;
 	}
@@ -278,7 +287,7 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCell_ForegroundColor() {
+	public EAttribute getCell_CellComments() {
 		return (EAttribute) cellEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -287,8 +296,26 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCell_CellComments() {
+	public EAttribute getCell_CellId() {
 		return (EAttribute) cellEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCell_RowIndex() {
+		return (EAttribute) cellEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCell_ColIndex() {
+		return (EAttribute) cellEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -400,6 +427,7 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 		createEReference(folderEClass, FOLDER__FILE);
 		createEReference(folderEClass, FOLDER__PARENT_FOLDER);
 		createEReference(folderEClass, FOLDER__SUB_FOLDER);
+		createEAttribute(folderEClass, FOLDER__NAME);
 
 		sheetEClass = createEClass(SHEET);
 		createEAttribute(sheetEClass, SHEET__SHEET_ID);
@@ -410,8 +438,10 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 		cellEClass = createEClass(CELL);
 		createEAttribute(cellEClass, CELL__TEXT);
 		createEAttribute(cellEClass, CELL__BACKGROUND_COLOR);
-		createEAttribute(cellEClass, CELL__FOREGROUND_COLOR);
 		createEAttribute(cellEClass, CELL__CELL_COMMENTS);
+		createEAttribute(cellEClass, CELL__CELL_ID);
+		createEAttribute(cellEClass, CELL__ROW_INDEX);
+		createEAttribute(cellEClass, CELL__COL_INDEX);
 
 		excelElementEClass = createEClass(EXCEL_ELEMENT);
 
@@ -477,6 +507,8 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 		initEReference(getFolder_SubFolder(), this.getFolder(), null, "subFolder", null, 0, -1, Folder.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFolder_Name(), ecorePackage.getEString(), "name", null, 0, 1, Folder.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sheetEClass, Sheet.class, "Sheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSheet_SheetId(), ecorePackage.getEInt(), "sheetId", null, 0, 1, Sheet.class, !IS_TRANSIENT,
@@ -495,10 +527,14 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_BackgroundColor(), ecorePackage.getEString(), "backgroundColor", null, 0, 1, Cell.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCell_ForegroundColor(), ecorePackage.getEString(), "foregroundColor", null, 0, 1, Cell.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_CellComments(), ecorePackage.getEString(), "cellComments", null, 0, 1, Cell.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCell_CellId(), ecorePackage.getEInt(), "cellId", null, 0, 1, Cell.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCell_RowIndex(), ecorePackage.getEInt(), "rowIndex", null, 0, 1, Cell.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCell_ColIndex(), ecorePackage.getEInt(), "colIndex", null, 0, 1, Cell.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(excelElementEClass, ExcelElement.class, "ExcelElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

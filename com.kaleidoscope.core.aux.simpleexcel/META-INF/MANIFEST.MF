@@ -13,3 +13,5 @@ Bundle-ManifestVersion: 2
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: 
+Import-Package: com.kaleidoscope.core.auxiliary.xmi.artefactadapter,
+ com.kaleidoscope.core.framework.workflow.adapters

@@ -168,13 +168,22 @@ public interface SimpleExcelPackage extends EPackage {
 	int FOLDER__SUB_FOLDER = EXCEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOLDER__NAME = EXCEL_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Folder</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FOLDER_FEATURE_COUNT = EXCEL_ELEMENT_FEATURE_COUNT + 3;
+	int FOLDER_FEATURE_COUNT = EXCEL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Folder</em>' class.
@@ -278,22 +287,40 @@ public interface SimpleExcelPackage extends EPackage {
 	int CELL__BACKGROUND_COLOR = EXCEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Foreground Color</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CELL__FOREGROUND_COLOR = EXCEL_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Cell Comments</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CELL__CELL_COMMENTS = EXCEL_ELEMENT_FEATURE_COUNT + 3;
+	int CELL__CELL_COMMENTS = EXCEL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Cell Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CELL__CELL_ID = EXCEL_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Row Index</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CELL__ROW_INDEX = EXCEL_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Col Index</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CELL__COL_INDEX = EXCEL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Cell</em>' class.
@@ -302,7 +329,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CELL_FEATURE_COUNT = EXCEL_ELEMENT_FEATURE_COUNT + 4;
+	int CELL_FEATURE_COUNT = EXCEL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Cell</em>' class.
@@ -490,6 +517,17 @@ public interface SimpleExcelPackage extends EPackage {
 	EReference getFolder_SubFolder();
 
 	/**
+	 * Returns the meta object for the attribute '{@link SimpleExcel.Folder#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see SimpleExcel.Folder#getName()
+	 * @see #getFolder()
+	 * @generated
+	 */
+	EAttribute getFolder_Name();
+
+	/**
 	 * Returns the meta object for class '{@link SimpleExcel.Sheet <em>Sheet</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -576,17 +614,6 @@ public interface SimpleExcelPackage extends EPackage {
 	EAttribute getCell_BackgroundColor();
 
 	/**
-	 * Returns the meta object for the attribute '{@link SimpleExcel.Cell#getForegroundColor <em>Foreground Color</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Foreground Color</em>'.
-	 * @see SimpleExcel.Cell#getForegroundColor()
-	 * @see #getCell()
-	 * @generated
-	 */
-	EAttribute getCell_ForegroundColor();
-
-	/**
 	 * Returns the meta object for the attribute '{@link SimpleExcel.Cell#getCellComments <em>Cell Comments</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -596,6 +623,39 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCell_CellComments();
+
+	/**
+	 * Returns the meta object for the attribute '{@link SimpleExcel.Cell#getCellId <em>Cell Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cell Id</em>'.
+	 * @see SimpleExcel.Cell#getCellId()
+	 * @see #getCell()
+	 * @generated
+	 */
+	EAttribute getCell_CellId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link SimpleExcel.Cell#getRowIndex <em>Row Index</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Row Index</em>'.
+	 * @see SimpleExcel.Cell#getRowIndex()
+	 * @see #getCell()
+	 * @generated
+	 */
+	EAttribute getCell_RowIndex();
+
+	/**
+	 * Returns the meta object for the attribute '{@link SimpleExcel.Cell#getColIndex <em>Col Index</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Col Index</em>'.
+	 * @see SimpleExcel.Cell#getColIndex()
+	 * @see #getCell()
+	 * @generated
+	 */
+	EAttribute getCell_ColIndex();
 
 	/**
 	 * Returns the meta object for class '{@link SimpleExcel.ExcelElement <em>Excel Element</em>}'.
@@ -766,6 +826,14 @@ public interface SimpleExcelPackage extends EPackage {
 		EReference FOLDER__SUB_FOLDER = eINSTANCE.getFolder_SubFolder();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FOLDER__NAME = eINSTANCE.getFolder_Name();
+
+		/**
 		 * The meta object literal for the '{@link SimpleExcel.impl.SheetImpl <em>Sheet</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -834,20 +902,36 @@ public interface SimpleExcelPackage extends EPackage {
 		EAttribute CELL__BACKGROUND_COLOR = eINSTANCE.getCell_BackgroundColor();
 
 		/**
-		 * The meta object literal for the '<em><b>Foreground Color</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CELL__FOREGROUND_COLOR = eINSTANCE.getCell_ForegroundColor();
-
-		/**
 		 * The meta object literal for the '<em><b>Cell Comments</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute CELL__CELL_COMMENTS = eINSTANCE.getCell_CellComments();
+
+		/**
+		 * The meta object literal for the '<em><b>Cell Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CELL__CELL_ID = eINSTANCE.getCell_CellId();
+
+		/**
+		 * The meta object literal for the '<em><b>Row Index</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CELL__ROW_INDEX = eINSTANCE.getCell_RowIndex();
+
+		/**
+		 * The meta object literal for the '<em><b>Col Index</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CELL__COL_INDEX = eINSTANCE.getCell_ColIndex();
 
 		/**
 		 * The meta object literal for the '{@link SimpleExcel.impl.ExcelElementImpl <em>Excel Element</em>}' class.

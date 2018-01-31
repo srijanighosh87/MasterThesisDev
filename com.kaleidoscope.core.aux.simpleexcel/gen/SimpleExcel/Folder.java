@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link SimpleExcel.Folder#getFile <em>File</em>}</li>
  *   <li>{@link SimpleExcel.Folder#getParentFolder <em>Parent Folder</em>}</li>
  *   <li>{@link SimpleExcel.Folder#getSubFolder <em>Sub Folder</em>}</li>
+ *   <li>{@link SimpleExcel.Folder#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,6 +83,32 @@ public interface Folder extends ExcelElement {
 	 * @generated
 	 */
 	EList<Folder> getSubFolder();
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see SimpleExcel.SimpleExcelPackage#getFolder_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link SimpleExcel.Folder#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->
