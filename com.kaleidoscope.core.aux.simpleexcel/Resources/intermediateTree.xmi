@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ASCII"?>
+<SimpleExcel:Folder xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:SimpleExcel="platform:/plugin/SimpleExcel/model/SimpleExcel.ecore" name="D:\WorkSpaces\Kaleidoscope Development\MasterThesisDev\com.kaleidoscope.core.aux.simpleexcel\Resources">
+  <file fileName="new.xlsx">
+    <sheet sheetName="Sheet1">
+      <rowobject rowId="1" isheader="true">
+        <cell text="Components under Development" backgroundColor="0,0,-1" rowIndex="1" colIndex="1"/>
+        <cell text="Dependencies" backgroundColor="0,0,-1" rowIndex="1" colIndex="2"/>
+        <cell text="Documentation" backgroundColor="0,0,-1" rowIndex="1" colIndex="3"/>
+        <cell text="Review" backgroundColor="0,0,-1" rowIndex="1" colIndex="4"/>
+      </rowobject>
+      <rowobject rowId="2">
+        <cell text="org.emoflon.ibex.tgg.core.language" backgroundColor="-103,-103,-1" rowIndex="2" colIndex="1"/>
+        <cell backgroundColor="-103,-103,-1" rowIndex="2" colIndex="2"/>
+        <cell backgroundColor="-103,-103,-1" rowIndex="2" colIndex="3"/>
+        <cell backgroundColor="-103,-103,-1" rowIndex="2" colIndex="4"/>
+      </rowobject>
+      <rowobject rowId="3">
+        <cell text="org.emoflon.ibex.tgg.core.runtime" backgroundColor="-103,-103,-1" rowIndex="4" colIndex="1"/>
+        <cell backgroundColor="-103,-103,-1" rowIndex="4" colIndex="2"/>
+        <cell backgroundColor="-103,-103,-1" rowIndex="4" colIndex="3"/>
+        <cell backgroundColor="-103,-103,-1" rowIndex="4" colIndex="4"/>
+      </rowobject>
+      <rowobject rowId="4">
+        <cell text="(org.emoflon.ibex.tgg.ide).IbexTGGBuilderExtension" rowIndex="5" colIndex="2"/>
+        <cell text="test" rowIndex="5" colIndex="3"/>
+        <cell rowIndex="5" colIndex="4"/>
+      </rowobject>
+      <rowobject rowId="5">
+        <cell text="(org.emoflon.ibex.tgg.ide).IbexTGGBuilderExtension" rowIndex="6" colIndex="2"/>
+        <cell text="test" rowIndex="6" colIndex="3"/>
+        <cell rowIndex="6" colIndex="4"/>
+      </rowobject>
+      <rowobject rowId="6">
+        <cell text="(org.emoflon.ibex.tgg.ide).IbexTGGBuilderExtension" rowIndex="7" colIndex="2"/>
+        <cell text="test" rowIndex="7" colIndex="3"/>
+        <cell rowIndex="7" colIndex="4"/>
+      </rowobject>
+    </sheet>
+  </file>
+</SimpleExcel:Folder>
