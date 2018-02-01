@@ -36,7 +36,7 @@ public interface Cell extends ExcelElement {
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(String)
 	 * @see SimpleExcel.SimpleExcelPackage#getCell_Text()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	String getText();
@@ -62,7 +62,7 @@ public interface Cell extends ExcelElement {
 	 * @return the value of the '<em>Background Color</em>' attribute.
 	 * @see #setBackgroundColor(String)
 	 * @see SimpleExcel.SimpleExcelPackage#getCell_BackgroundColor()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	String getBackgroundColor();
@@ -88,7 +88,7 @@ public interface Cell extends ExcelElement {
 	 * @return the value of the '<em>Cell Comments</em>' attribute.
 	 * @see #setCellComments(String)
 	 * @see SimpleExcel.SimpleExcelPackage#getCell_CellComments()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	String getCellComments();
@@ -114,7 +114,7 @@ public interface Cell extends ExcelElement {
 	 * @return the value of the '<em>Cell Id</em>' attribute.
 	 * @see #setCellId(int)
 	 * @see SimpleExcel.SimpleExcelPackage#getCell_CellId()
-	 * @model id="true"
+	 * @model
 	 * @generated
 	 */
 	int getCellId();

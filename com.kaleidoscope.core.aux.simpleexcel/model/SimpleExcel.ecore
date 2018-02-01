@@ -19,24 +19,20 @@
         eType="#//Cell" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Cell" eSuperTypes="#//ExcelElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="backgroundColor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cellComments" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cellId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="backgroundColor" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cellComments" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cellId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExcelElement" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="RowObject">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isheader" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cell" lowerBound="1" upperBound="-1"
         eType="#//Cell"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nextRow" eType="#//RowObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColObject">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cell" lowerBound="1" upperBound="-1"
         eType="#//Cell"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nextColumn" eType="#//ColObject"/>

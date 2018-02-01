@@ -287,31 +287,13 @@ public interface SimpleExcelPackage extends EPackage {
 	int ROW_OBJECT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Row Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROW_OBJECT__ROW_ID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Isheader</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROW_OBJECT__ISHEADER = 1;
-
-	/**
 	 * The feature id for the '<em><b>Cell</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_OBJECT__CELL = 2;
+	int ROW_OBJECT__CELL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Next Row</b></em>' reference.
@@ -320,7 +302,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_OBJECT__NEXT_ROW = 3;
+	int ROW_OBJECT__NEXT_ROW = 1;
 
 	/**
 	 * The number of structural features of the '<em>Row Object</em>' class.
@@ -329,7 +311,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_OBJECT_FEATURE_COUNT = 4;
+	int ROW_OBJECT_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Row Object</em>' class.
@@ -351,22 +333,13 @@ public interface SimpleExcelPackage extends EPackage {
 	int COL_OBJECT = 5;
 
 	/**
-	 * The feature id for the '<em><b>Col Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COL_OBJECT__COL_ID = 0;
-
-	/**
 	 * The feature id for the '<em><b>Cell</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COL_OBJECT__CELL = 1;
+	int COL_OBJECT__CELL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Next Column</b></em>' reference.
@@ -375,7 +348,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COL_OBJECT__NEXT_COLUMN = 2;
+	int COL_OBJECT__NEXT_COLUMN = 1;
 
 	/**
 	 * The number of structural features of the '<em>Col Object</em>' class.
@@ -384,7 +357,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COL_OBJECT_FEATURE_COUNT = 3;
+	int COL_OBJECT_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Col Object</em>' class.
@@ -578,28 +551,6 @@ public interface SimpleExcelPackage extends EPackage {
 	EClass getRowObject();
 
 	/**
-	 * Returns the meta object for the attribute '{@link SimpleExcel.RowObject#getRowId <em>Row Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Row Id</em>'.
-	 * @see SimpleExcel.RowObject#getRowId()
-	 * @see #getRowObject()
-	 * @generated
-	 */
-	EAttribute getRowObject_RowId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link SimpleExcel.RowObject#isIsheader <em>Isheader</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Isheader</em>'.
-	 * @see SimpleExcel.RowObject#isIsheader()
-	 * @see #getRowObject()
-	 * @generated
-	 */
-	EAttribute getRowObject_Isheader();
-
-	/**
 	 * Returns the meta object for the reference list '{@link SimpleExcel.RowObject#getCell <em>Cell</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -630,17 +581,6 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getColObject();
-
-	/**
-	 * Returns the meta object for the attribute '{@link SimpleExcel.ColObject#getColId <em>Col Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Col Id</em>'.
-	 * @see SimpleExcel.ColObject#getColId()
-	 * @see #getColObject()
-	 * @generated
-	 */
-	EAttribute getColObject_ColId();
 
 	/**
 	 * Returns the meta object for the reference list '{@link SimpleExcel.ColObject#getCell <em>Cell</em>}'.
@@ -834,22 +774,6 @@ public interface SimpleExcelPackage extends EPackage {
 		EClass ROW_OBJECT = eINSTANCE.getRowObject();
 
 		/**
-		 * The meta object literal for the '<em><b>Row Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROW_OBJECT__ROW_ID = eINSTANCE.getRowObject_RowId();
-
-		/**
-		 * The meta object literal for the '<em><b>Isheader</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROW_OBJECT__ISHEADER = eINSTANCE.getRowObject_Isheader();
-
-		/**
 		 * The meta object literal for the '<em><b>Cell</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -874,14 +798,6 @@ public interface SimpleExcelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COL_OBJECT = eINSTANCE.getColObject();
-
-		/**
-		 * The meta object literal for the '<em><b>Col Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COL_OBJECT__COL_ID = eINSTANCE.getColObject_ColId();
 
 		/**
 		 * The meta object literal for the '<em><b>Cell</b></em>' reference list feature.

@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link SimpleExcel.impl.ColObjectImpl#getColId <em>Col Id</em>}</li>
  *   <li>{@link SimpleExcel.impl.ColObjectImpl#getCell <em>Cell</em>}</li>
  *   <li>{@link SimpleExcel.impl.ColObjectImpl#getNextColumn <em>Next Column</em>}</li>
  * </ul>
@@ -38,26 +37,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * @generated
  */
 public class ColObjectImpl extends EObjectImpl implements ColObject {
-	/**
-	 * The default value of the '{@link #getColId() <em>Col Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getColId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int COL_ID_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getColId() <em>Col Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getColId()
-	 * @generated
-	 * @ordered
-	 */
-	protected int colId = COL_ID_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getCell() <em>Cell</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -95,28 +74,6 @@ public class ColObjectImpl extends EObjectImpl implements ColObject {
 	@Override
 	protected EClass eStaticClass() {
 		return SimpleExcelPackage.Literals.COL_OBJECT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getColId() {
-		return colId;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setColId(int newColId) {
-		int oldColId = colId;
-		colId = newColId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimpleExcelPackage.COL_OBJECT__COL_ID, oldColId,
-					colId));
 	}
 
 	/**
@@ -179,8 +136,6 @@ public class ColObjectImpl extends EObjectImpl implements ColObject {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case SimpleExcelPackage.COL_OBJECT__COL_ID:
-			return getColId();
 		case SimpleExcelPackage.COL_OBJECT__CELL:
 			return getCell();
 		case SimpleExcelPackage.COL_OBJECT__NEXT_COLUMN:
@@ -200,9 +155,6 @@ public class ColObjectImpl extends EObjectImpl implements ColObject {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case SimpleExcelPackage.COL_OBJECT__COL_ID:
-			setColId((Integer) newValue);
-			return;
 		case SimpleExcelPackage.COL_OBJECT__CELL:
 			getCell().clear();
 			getCell().addAll((Collection<? extends Cell>) newValue);
@@ -222,9 +174,6 @@ public class ColObjectImpl extends EObjectImpl implements ColObject {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case SimpleExcelPackage.COL_OBJECT__COL_ID:
-			setColId(COL_ID_EDEFAULT);
-			return;
 		case SimpleExcelPackage.COL_OBJECT__CELL:
 			getCell().clear();
 			return;
@@ -243,31 +192,12 @@ public class ColObjectImpl extends EObjectImpl implements ColObject {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case SimpleExcelPackage.COL_OBJECT__COL_ID:
-			return colId != COL_ID_EDEFAULT;
 		case SimpleExcelPackage.COL_OBJECT__CELL:
 			return cell != null && !cell.isEmpty();
 		case SimpleExcelPackage.COL_OBJECT__NEXT_COLUMN:
 			return nextColumn != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (colId: ");
-		result.append(colId);
-		result.append(')');
-		return result.toString();
 	}
 	// <-- [user code injected with eMoflon]
 

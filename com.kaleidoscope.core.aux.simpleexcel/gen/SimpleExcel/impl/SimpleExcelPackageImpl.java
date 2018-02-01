@@ -288,26 +288,8 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRowObject_RowId() {
-		return (EAttribute) rowObjectEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRowObject_Isheader() {
-		return (EAttribute) rowObjectEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getRowObject_Cell() {
-		return (EReference) rowObjectEClass.getEStructuralFeatures().get(2);
+		return (EReference) rowObjectEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -316,7 +298,7 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * @generated
 	 */
 	public EReference getRowObject_NextRow() {
-		return (EReference) rowObjectEClass.getEStructuralFeatures().get(3);
+		return (EReference) rowObjectEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -333,17 +315,8 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColObject_ColId() {
-		return (EAttribute) colObjectEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getColObject_Cell() {
-		return (EReference) colObjectEClass.getEStructuralFeatures().get(1);
+		return (EReference) colObjectEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -352,7 +325,7 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * @generated
 	 */
 	public EReference getColObject_NextColumn() {
-		return (EReference) colObjectEClass.getEStructuralFeatures().get(2);
+		return (EReference) colObjectEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -405,13 +378,10 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 		excelElementEClass = createEClass(EXCEL_ELEMENT);
 
 		rowObjectEClass = createEClass(ROW_OBJECT);
-		createEAttribute(rowObjectEClass, ROW_OBJECT__ROW_ID);
-		createEAttribute(rowObjectEClass, ROW_OBJECT__ISHEADER);
 		createEReference(rowObjectEClass, ROW_OBJECT__CELL);
 		createEReference(rowObjectEClass, ROW_OBJECT__NEXT_ROW);
 
 		colObjectEClass = createEClass(COL_OBJECT);
-		createEAttribute(colObjectEClass, COL_OBJECT__COL_ID);
 		createEReference(colObjectEClass, COL_OBJECT__CELL);
 		createEReference(colObjectEClass, COL_OBJECT__NEXT_COLUMN);
 	}
@@ -476,23 +446,21 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 
 		initEClass(cellEClass, Cell.class, "Cell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCell_Text(), ecorePackage.getEString(), "text", null, 0, 1, Cell.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_BackgroundColor(), ecorePackage.getEString(), "backgroundColor", null, 0, 1, Cell.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 		initEAttribute(getCell_CellComments(), ecorePackage.getEString(), "cellComments", null, 0, 1, Cell.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 		initEAttribute(getCell_CellId(), ecorePackage.getEInt(), "cellId", null, 0, 1, Cell.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(excelElementEClass, ExcelElement.class, "ExcelElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(rowObjectEClass, RowObject.class, "RowObject", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRowObject_RowId(), ecorePackage.getEInt(), "rowId", null, 0, 1, RowObject.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRowObject_Isheader(), ecorePackage.getEBoolean(), "isheader", null, 0, 1, RowObject.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRowObject_Cell(), this.getCell(), null, "cell", null, 1, -1, RowObject.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
@@ -502,8 +470,6 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 
 		initEClass(colObjectEClass, ColObject.class, "ColObject", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getColObject_ColId(), ecorePackage.getEInt(), "colId", null, 0, 1, ColObject.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getColObject_Cell(), this.getCell(), null, "cell", null, 1, -1, ColObject.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);

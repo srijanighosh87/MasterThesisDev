@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link SimpleExcel.ColObject#getColId <em>Col Id</em>}</li>
  *   <li>{@link SimpleExcel.ColObject#getCell <em>Cell</em>}</li>
  *   <li>{@link SimpleExcel.ColObject#getNextColumn <em>Next Column</em>}</li>
  * </ul>
@@ -27,32 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface ColObject extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Col Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Col Id</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Col Id</em>' attribute.
-	 * @see #setColId(int)
-	 * @see SimpleExcel.SimpleExcelPackage#getColObject_ColId()
-	 * @model id="true"
-	 * @generated
-	 */
-	int getColId();
-
-	/**
-	 * Sets the value of the '{@link SimpleExcel.ColObject#getColId <em>Col Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Col Id</em>' attribute.
-	 * @see #getColId()
-	 * @generated
-	 */
-	void setColId(int value);
-
 	/**
 	 * Returns the value of the '<em><b>Cell</b></em>' reference list.
 	 * The list contents are of type {@link SimpleExcel.Cell}.

@@ -22,6 +22,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.eclipse.emf.common.util.EList;
 
 import com.kaleidoscope.core.auxiliary.simpleexcel.utils.Constants;
 
@@ -39,9 +40,9 @@ public class ExcelHandler {
 	private Path path;
 	private Workbook workBook;
 	private Optional<ExcelElement> model;
-	private int rowId = 1;
 
-	private int cellId = 0;
+	private int rowId = Constants.INIT_ROW;
+	private int cellId = Constants.INIT_CELL;
 
 	public ExcelHandler(Path path, Optional<ExcelElement> model) {
 		this.path = path;
@@ -61,9 +62,6 @@ public class ExcelHandler {
 
 			FileInputStream excelFile = new FileInputStream(new File(filePath));
 			this.workBook = new XSSFWorkbook(excelFile);
-
-			// extract file name, folder Name
-			// List<String> fileAndFolder = getFileAndFolderName(path);
 
 			SimpleExcel.File simpleFile = SimpleExcelFactory.eINSTANCE.createFile();
 			String absoluteFileName = path.toAbsolutePath().toString();
@@ -101,7 +99,8 @@ public class ExcelHandler {
 		System.out.println("Reading from Sheet :" + this.workBook.getSheetName(sheetCount));
 
 		simpleSheet.setSheetName(currentSheet.getSheetName());
-		// read the whole sheet
+
+		// read the rows of whole sheet
 		List<Row> rowList = new ArrayList<Row>();
 		Iterator<Row> rowIterator = currentSheet.iterator();
 		while (rowIterator.hasNext()) {
@@ -110,30 +109,55 @@ public class ExcelHandler {
 		}
 
 		setRowRelations(rowList, simpleSheet, 0);
-		
-		System.out.println();
 
+		// create Columns
+		createColumnObjects(simpleSheet);
 	}
 
+	/**
+	 * This method reads sheets, Rows from them and creates columnObjects
+	 * 
+	 * @param simpleSheet
+	 */
+	private void createColumnObjects(SimpleExcel.Sheet simpleSheet) {
+		EList<RowObject> rowObjects = simpleSheet.getRowobject();
+		for (RowObject rowObject : rowObjects) {
+			if (rowObject != null) {
+				EList<SimpleExcel.Cell> cells = rowObject.getCell();
+				for (SimpleExcel.Cell cell : cells) {
+				}
+			}
+		}
+	}
+
+	/**
+	 * Recursive code for reading the rows and setting nextRowObject
+	 * 
+	 * @param rowList
+	 * @param simpleSheet
+	 * @param index
+	 * @return
+	 */
 	private RowObject setRowRelations(List<Row> rowList, SimpleExcel.Sheet simpleSheet, int index) {
 		Row currentRow = null;
-		RowObject nextRowObject = SimpleExcelFactory.eINSTANCE.createRowObject();
+		//RowObject nextRowObject = SimpleExcelFactory.eINSTANCE.createRowObject();
+		RowObject nextRowObject = null;
 		if (index < rowList.size()) {
 			currentRow = rowList.get(index);
 			if (!rowIsEmpty(currentRow)) {
 				RowObject rowObject = SimpleExcelFactory.eINSTANCE.createRowObject();
-				if (rowId == 1)
-					rowObject.setIsheader(true);
-				rowObject.setRowId(rowId++);
-				
-				
+				//if (rowId == 1)
+					//rowObject.setIsheader(true);
+				//rowObject.setRowId(rowId++);
+
 				readRow(currentRow, rowObject, simpleSheet);
-				
+
 				nextRowObject = setRowRelations(rowList, simpleSheet, index + 1);
-				
-				if (nextRowObject != null && !(nextRowObject.getRowId() <= 0))
+
+				//if (nextRowObject != null && !(nextRowObject.getRowId() <= 0))
+				if (nextRowObject != null)
 					rowObject.setNextRow(nextRowObject);
-				
+
 				simpleSheet.getRowobject().add(rowObject);
 				return rowObject;
 			}
@@ -165,7 +189,7 @@ public class ExcelHandler {
 	 * 
 	 * @param currentRow
 	 * @param rowObject
-	 * @param simpleSheet 
+	 * @param simpleSheet
 	 */
 	private void readRow(Row currentRow, RowObject rowObject, SimpleExcel.Sheet simpleSheet) {
 		Iterator<Cell> cellIterator = currentRow.iterator();
@@ -200,7 +224,7 @@ public class ExcelHandler {
 			cellObject.setCellComments(comment);
 		if (!currentCell.toString().equals(""))
 			cellObject.setText(currentCell.toString());
-		//cellObject.setCellId(cellId ++);
+		cellObject.setCellId(cellId++);
 		// get cell colors
 		XSSFColor xssfColor = (XSSFColor) currentCell.getCellStyle().getFillForegroundColorColor();
 		if (xssfColor != null) {

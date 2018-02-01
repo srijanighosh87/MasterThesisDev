@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
 <SimpleExcel:File xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:SimpleExcel="platform:/resources/com.kaleidoscope.core.aux.simpleexcel/model/SimpleExcel.ecore" fileName="D:\WorkSpaces\Kaleidoscope Development\MasterThesisDev\com.kaleidoscope.core.aux.simpleexcel\Resources\Relationship.xlsx">
-  <sheet sheetName="Sheet1">
-    <rowobject rowId="1" isheader="true" cell="//@sheet.0/@cell.0 //@sheet.0/@cell.1 //@sheet.0/@cell.2 //@sheet.0/@cell.3"/>
+  <sheet sheetName="RelationShip">
+    <rowobject cell="//@sheet.0/@cell.4 //@sheet.0/@cell.5 //@sheet.0/@cell.6 //@sheet.0/@cell.7"/>
+    <rowobject cell="//@sheet.0/@cell.0 //@sheet.0/@cell.1 //@sheet.0/@cell.2 //@sheet.0/@cell.3" nextRow="//@sheet.0/@rowobject.0"/>
     <cell text="Components"/>
-    <cell text="Dependencies"/>
-    <cell text="Documentation"/>
-    <cell text="Review"/>
+    <cell text="Dependencies" cellId="1"/>
+    <cell text="Documentation" cellId="2"/>
+    <cell text="Review" cellId="3"/>
+    <cell text="org.emoflon.ibex.tgg.core.language" cellId="4"/>
+    <cell cellId="5"/>
+    <cell cellId="6"/>
+    <cell cellId="7"/>
   </sheet>
 </SimpleExcel:File>
