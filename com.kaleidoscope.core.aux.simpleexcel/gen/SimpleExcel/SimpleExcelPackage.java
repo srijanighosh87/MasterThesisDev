@@ -38,7 +38,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "platform:/plugin/SimpleExcel/model/SimpleExcel.ecore";
+	String eNS_URI = "platform:/resources/com.kaleidoscope.core.aux.simpleexcel/model/SimpleExcel.ecore";
 
 	/**
 	 * The package namespace name.
@@ -64,7 +64,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @see SimpleExcel.impl.SimpleExcelPackageImpl#getExcelElement()
 	 * @generated
 	 */
-	int EXCEL_ELEMENT = 4;
+	int EXCEL_ELEMENT = 3;
 
 	/**
 	 * The number of structural features of the '<em>Excel Element</em>' class.
@@ -113,13 +113,22 @@ public interface SimpleExcelPackage extends EPackage {
 	int FILE__FILE_NAME = EXCEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE__PATH = EXCEL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_FEATURE_COUNT = EXCEL_ELEMENT_FEATURE_COUNT + 2;
+	int FILE_FEATURE_COUNT = EXCEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>File</em>' class.
@@ -131,70 +140,6 @@ public interface SimpleExcelPackage extends EPackage {
 	int FILE_OPERATION_COUNT = EXCEL_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link SimpleExcel.impl.FolderImpl <em>Folder</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see SimpleExcel.impl.FolderImpl
-	 * @see SimpleExcel.impl.SimpleExcelPackageImpl#getFolder()
-	 * @generated
-	 */
-	int FOLDER = 1;
-
-	/**
-	 * The feature id for the '<em><b>File</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER__FILE = EXCEL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Parent Folder</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER__PARENT_FOLDER = EXCEL_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Sub Folder</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER__SUB_FOLDER = EXCEL_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER__NAME = EXCEL_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Folder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER_FEATURE_COUNT = EXCEL_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of operations of the '<em>Folder</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FOLDER_OPERATION_COUNT = EXCEL_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link SimpleExcel.impl.SheetImpl <em>Sheet</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -202,7 +147,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @see SimpleExcel.impl.SimpleExcelPackageImpl#getSheet()
 	 * @generated
 	 */
-	int SHEET = 2;
+	int SHEET = 1;
 
 	/**
 	 * The feature id for the '<em><b>Sheet Id</b></em>' attribute.
@@ -241,13 +186,22 @@ public interface SimpleExcelPackage extends EPackage {
 	int SHEET__ROWOBJECT = EXCEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Cell</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SHEET__CELL = EXCEL_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Sheet</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SHEET_FEATURE_COUNT = EXCEL_ELEMENT_FEATURE_COUNT + 4;
+	int SHEET_FEATURE_COUNT = EXCEL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Sheet</em>' class.
@@ -266,7 +220,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @see SimpleExcel.impl.SimpleExcelPackageImpl#getCell()
 	 * @generated
 	 */
-	int CELL = 3;
+	int CELL = 2;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -305,31 +259,13 @@ public interface SimpleExcelPackage extends EPackage {
 	int CELL__CELL_ID = EXCEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Row Index</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CELL__ROW_INDEX = EXCEL_ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Col Index</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CELL__COL_INDEX = EXCEL_ELEMENT_FEATURE_COUNT + 5;
-
-	/**
 	 * The number of structural features of the '<em>Cell</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CELL_FEATURE_COUNT = EXCEL_ELEMENT_FEATURE_COUNT + 6;
+	int CELL_FEATURE_COUNT = EXCEL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Cell</em>' class.
@@ -348,16 +284,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @see SimpleExcel.impl.SimpleExcelPackageImpl#getRowObject()
 	 * @generated
 	 */
-	int ROW_OBJECT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Cell</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROW_OBJECT__CELL = 0;
+	int ROW_OBJECT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Row Id</b></em>' attribute.
@@ -366,7 +293,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_OBJECT__ROW_ID = 1;
+	int ROW_OBJECT__ROW_ID = 0;
 
 	/**
 	 * The feature id for the '<em><b>Isheader</b></em>' attribute.
@@ -375,7 +302,25 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_OBJECT__ISHEADER = 2;
+	int ROW_OBJECT__ISHEADER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Cell</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW_OBJECT__CELL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Next Row</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROW_OBJECT__NEXT_ROW = 3;
 
 	/**
 	 * The number of structural features of the '<em>Row Object</em>' class.
@@ -384,7 +329,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROW_OBJECT_FEATURE_COUNT = 3;
+	int ROW_OBJECT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Row Object</em>' class.
@@ -403,16 +348,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @see SimpleExcel.impl.SimpleExcelPackageImpl#getColObject()
 	 * @generated
 	 */
-	int COL_OBJECT = 6;
-
-	/**
-	 * The feature id for the '<em><b>Cell</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COL_OBJECT__CELL = 0;
+	int COL_OBJECT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Col Id</b></em>' attribute.
@@ -421,7 +357,25 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COL_OBJECT__COL_ID = 1;
+	int COL_OBJECT__COL_ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Cell</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COL_OBJECT__CELL = 1;
+
+	/**
+	 * The feature id for the '<em><b>Next Column</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COL_OBJECT__NEXT_COLUMN = 2;
 
 	/**
 	 * The number of structural features of the '<em>Col Object</em>' class.
@@ -430,7 +384,7 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COL_OBJECT_FEATURE_COUNT = 2;
+	int COL_OBJECT_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Col Object</em>' class.
@@ -474,58 +428,15 @@ public interface SimpleExcelPackage extends EPackage {
 	EAttribute getFile_FileName();
 
 	/**
-	 * Returns the meta object for class '{@link SimpleExcel.Folder <em>Folder</em>}'.
+	 * Returns the meta object for the attribute '{@link SimpleExcel.File#getPath <em>Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Folder</em>'.
-	 * @see SimpleExcel.Folder
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see SimpleExcel.File#getPath()
+	 * @see #getFile()
 	 * @generated
 	 */
-	EClass getFolder();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link SimpleExcel.Folder#getFile <em>File</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>File</em>'.
-	 * @see SimpleExcel.Folder#getFile()
-	 * @see #getFolder()
-	 * @generated
-	 */
-	EReference getFolder_File();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link SimpleExcel.Folder#getParentFolder <em>Parent Folder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Parent Folder</em>'.
-	 * @see SimpleExcel.Folder#getParentFolder()
-	 * @see #getFolder()
-	 * @generated
-	 */
-	EReference getFolder_ParentFolder();
-
-	/**
-	 * Returns the meta object for the reference list '{@link SimpleExcel.Folder#getSubFolder <em>Sub Folder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Sub Folder</em>'.
-	 * @see SimpleExcel.Folder#getSubFolder()
-	 * @see #getFolder()
-	 * @generated
-	 */
-	EReference getFolder_SubFolder();
-
-	/**
-	 * Returns the meta object for the attribute '{@link SimpleExcel.Folder#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see SimpleExcel.Folder#getName()
-	 * @see #getFolder()
-	 * @generated
-	 */
-	EAttribute getFolder_Name();
+	EAttribute getFile_Path();
 
 	/**
 	 * Returns the meta object for class '{@link SimpleExcel.Sheet <em>Sheet</em>}'.
@@ -582,6 +493,17 @@ public interface SimpleExcelPackage extends EPackage {
 	EReference getSheet_Rowobject();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link SimpleExcel.Sheet#getCell <em>Cell</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Cell</em>'.
+	 * @see SimpleExcel.Sheet#getCell()
+	 * @see #getSheet()
+	 * @generated
+	 */
+	EReference getSheet_Cell();
+
+	/**
 	 * Returns the meta object for class '{@link SimpleExcel.Cell <em>Cell</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -636,28 +558,6 @@ public interface SimpleExcelPackage extends EPackage {
 	EAttribute getCell_CellId();
 
 	/**
-	 * Returns the meta object for the attribute '{@link SimpleExcel.Cell#getRowIndex <em>Row Index</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Row Index</em>'.
-	 * @see SimpleExcel.Cell#getRowIndex()
-	 * @see #getCell()
-	 * @generated
-	 */
-	EAttribute getCell_RowIndex();
-
-	/**
-	 * Returns the meta object for the attribute '{@link SimpleExcel.Cell#getColIndex <em>Col Index</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Col Index</em>'.
-	 * @see SimpleExcel.Cell#getColIndex()
-	 * @see #getCell()
-	 * @generated
-	 */
-	EAttribute getCell_ColIndex();
-
-	/**
 	 * Returns the meta object for class '{@link SimpleExcel.ExcelElement <em>Excel Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -676,17 +576,6 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRowObject();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link SimpleExcel.RowObject#getCell <em>Cell</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Cell</em>'.
-	 * @see SimpleExcel.RowObject#getCell()
-	 * @see #getRowObject()
-	 * @generated
-	 */
-	EReference getRowObject_Cell();
 
 	/**
 	 * Returns the meta object for the attribute '{@link SimpleExcel.RowObject#getRowId <em>Row Id</em>}'.
@@ -711,6 +600,28 @@ public interface SimpleExcelPackage extends EPackage {
 	EAttribute getRowObject_Isheader();
 
 	/**
+	 * Returns the meta object for the reference list '{@link SimpleExcel.RowObject#getCell <em>Cell</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Cell</em>'.
+	 * @see SimpleExcel.RowObject#getCell()
+	 * @see #getRowObject()
+	 * @generated
+	 */
+	EReference getRowObject_Cell();
+
+	/**
+	 * Returns the meta object for the reference '{@link SimpleExcel.RowObject#getNextRow <em>Next Row</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Next Row</em>'.
+	 * @see SimpleExcel.RowObject#getNextRow()
+	 * @see #getRowObject()
+	 * @generated
+	 */
+	EReference getRowObject_NextRow();
+
+	/**
 	 * Returns the meta object for class '{@link SimpleExcel.ColObject <em>Col Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -719,17 +630,6 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getColObject();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link SimpleExcel.ColObject#getCell <em>Cell</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Cell</em>'.
-	 * @see SimpleExcel.ColObject#getCell()
-	 * @see #getColObject()
-	 * @generated
-	 */
-	EReference getColObject_Cell();
 
 	/**
 	 * Returns the meta object for the attribute '{@link SimpleExcel.ColObject#getColId <em>Col Id</em>}'.
@@ -741,6 +641,28 @@ public interface SimpleExcelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getColObject_ColId();
+
+	/**
+	 * Returns the meta object for the reference list '{@link SimpleExcel.ColObject#getCell <em>Cell</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Cell</em>'.
+	 * @see SimpleExcel.ColObject#getCell()
+	 * @see #getColObject()
+	 * @generated
+	 */
+	EReference getColObject_Cell();
+
+	/**
+	 * Returns the meta object for the reference '{@link SimpleExcel.ColObject#getNextColumn <em>Next Column</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Next Column</em>'.
+	 * @see SimpleExcel.ColObject#getNextColumn()
+	 * @see #getColObject()
+	 * @generated
+	 */
+	EReference getColObject_NextColumn();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -792,46 +714,12 @@ public interface SimpleExcelPackage extends EPackage {
 		EAttribute FILE__FILE_NAME = eINSTANCE.getFile_FileName();
 
 		/**
-		 * The meta object literal for the '{@link SimpleExcel.impl.FolderImpl <em>Folder</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see SimpleExcel.impl.FolderImpl
-		 * @see SimpleExcel.impl.SimpleExcelPackageImpl#getFolder()
-		 * @generated
-		 */
-		EClass FOLDER = eINSTANCE.getFolder();
-
-		/**
-		 * The meta object literal for the '<em><b>File</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FOLDER__FILE = eINSTANCE.getFolder_File();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent Folder</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FOLDER__PARENT_FOLDER = eINSTANCE.getFolder_ParentFolder();
-
-		/**
-		 * The meta object literal for the '<em><b>Sub Folder</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FOLDER__SUB_FOLDER = eINSTANCE.getFolder_SubFolder();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FOLDER__NAME = eINSTANCE.getFolder_Name();
+		EAttribute FILE__PATH = eINSTANCE.getFile_Path();
 
 		/**
 		 * The meta object literal for the '{@link SimpleExcel.impl.SheetImpl <em>Sheet</em>}' class.
@@ -876,6 +764,14 @@ public interface SimpleExcelPackage extends EPackage {
 		EReference SHEET__ROWOBJECT = eINSTANCE.getSheet_Rowobject();
 
 		/**
+		 * The meta object literal for the '<em><b>Cell</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SHEET__CELL = eINSTANCE.getSheet_Cell();
+
+		/**
 		 * The meta object literal for the '{@link SimpleExcel.impl.CellImpl <em>Cell</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -918,22 +814,6 @@ public interface SimpleExcelPackage extends EPackage {
 		EAttribute CELL__CELL_ID = eINSTANCE.getCell_CellId();
 
 		/**
-		 * The meta object literal for the '<em><b>Row Index</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CELL__ROW_INDEX = eINSTANCE.getCell_RowIndex();
-
-		/**
-		 * The meta object literal for the '<em><b>Col Index</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CELL__COL_INDEX = eINSTANCE.getCell_ColIndex();
-
-		/**
 		 * The meta object literal for the '{@link SimpleExcel.impl.ExcelElementImpl <em>Excel Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -954,14 +834,6 @@ public interface SimpleExcelPackage extends EPackage {
 		EClass ROW_OBJECT = eINSTANCE.getRowObject();
 
 		/**
-		 * The meta object literal for the '<em><b>Cell</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROW_OBJECT__CELL = eINSTANCE.getRowObject_Cell();
-
-		/**
 		 * The meta object literal for the '<em><b>Row Id</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -978,6 +850,22 @@ public interface SimpleExcelPackage extends EPackage {
 		EAttribute ROW_OBJECT__ISHEADER = eINSTANCE.getRowObject_Isheader();
 
 		/**
+		 * The meta object literal for the '<em><b>Cell</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROW_OBJECT__CELL = eINSTANCE.getRowObject_Cell();
+
+		/**
+		 * The meta object literal for the '<em><b>Next Row</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROW_OBJECT__NEXT_ROW = eINSTANCE.getRowObject_NextRow();
+
+		/**
 		 * The meta object literal for the '{@link SimpleExcel.impl.ColObjectImpl <em>Col Object</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -988,7 +876,15 @@ public interface SimpleExcelPackage extends EPackage {
 		EClass COL_OBJECT = eINSTANCE.getColObject();
 
 		/**
-		 * The meta object literal for the '<em><b>Cell</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Col Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COL_OBJECT__COL_ID = eINSTANCE.getColObject_ColId();
+
+		/**
+		 * The meta object literal for the '<em><b>Cell</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -996,12 +892,12 @@ public interface SimpleExcelPackage extends EPackage {
 		EReference COL_OBJECT__CELL = eINSTANCE.getColObject_Cell();
 
 		/**
-		 * The meta object literal for the '<em><b>Col Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Next Column</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COL_OBJECT__COL_ID = eINSTANCE.getColObject_ColId();
+		EReference COL_OBJECT__NEXT_COLUMN = eINSTANCE.getColObject_NextColumn();
 
 	}
 

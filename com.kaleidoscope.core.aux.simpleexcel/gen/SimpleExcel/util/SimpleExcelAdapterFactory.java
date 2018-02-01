@@ -72,11 +72,6 @@ public class SimpleExcelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseFolder(Folder object) {
-			return createFolderAdapter();
-		}
-
-		@Override
 		public Adapter caseSheet(Sheet object) {
 			return createSheetAdapter();
 		}
@@ -131,20 +126,6 @@ public class SimpleExcelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFileAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link SimpleExcel.Folder <em>Folder</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see SimpleExcel.Folder
-	 * @generated
-	 */
-	public Adapter createFolderAdapter() {
 		return null;
 	}
 

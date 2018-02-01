@@ -8,36 +8,32 @@
     <genClasses ecoreClass="SimpleExcel.ecore#//File">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//File/sheet"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//File/fileName"/>
-    </genClasses>
-    <genClasses ecoreClass="SimpleExcel.ecore#//Folder">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//Folder/file"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//Folder/parentFolder"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//Folder/subFolder"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Folder/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//File/path"/>
     </genClasses>
     <genClasses ecoreClass="SimpleExcel.ecore#//Sheet">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Sheet/sheetId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Sheet/sheetName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//Sheet/colobject"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//Sheet/rowobject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//Sheet/cell"/>
     </genClasses>
     <genClasses ecoreClass="SimpleExcel.ecore#//Cell">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Cell/text"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Cell/backgroundColor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Cell/cellComments"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Cell/cellId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Cell/rowIndex"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//Cell/colIndex"/>
     </genClasses>
     <genClasses image="false" ecoreClass="SimpleExcel.ecore#//ExcelElement"/>
     <genClasses ecoreClass="SimpleExcel.ecore#//RowObject">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//RowObject/cell"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//RowObject/rowId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//RowObject/isheader"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//RowObject/cell"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//RowObject/nextRow"/>
     </genClasses>
     <genClasses ecoreClass="SimpleExcel.ecore#//ColObject">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//ColObject/cell"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SimpleExcel.ecore#//ColObject/colId"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//ColObject/cell"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SimpleExcel.ecore#//ColObject/nextColumn"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

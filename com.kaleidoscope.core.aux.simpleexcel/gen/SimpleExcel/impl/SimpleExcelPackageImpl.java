@@ -6,7 +6,6 @@ import SimpleExcel.Cell;
 import SimpleExcel.ColObject;
 import SimpleExcel.ExcelElement;
 import SimpleExcel.File;
-import SimpleExcel.Folder;
 import SimpleExcel.RowObject;
 import SimpleExcel.Sheet;
 import SimpleExcel.SimpleExcelFactory;
@@ -32,13 +31,6 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * @generated
 	 */
 	private EClass fileEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass folderEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -170,44 +162,8 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getFolder() {
-		return folderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFolder_File() {
-		return (EReference) folderEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFolder_ParentFolder() {
-		return (EReference) folderEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFolder_SubFolder() {
-		return (EReference) folderEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFolder_Name() {
-		return (EAttribute) folderEClass.getEStructuralFeatures().get(3);
+	public EAttribute getFile_Path() {
+		return (EAttribute) fileEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -260,6 +216,15 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSheet_Cell() {
+		return (EReference) sheetEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCell() {
 		return cellEClass;
 	}
@@ -305,24 +270,6 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCell_RowIndex() {
-		return (EAttribute) cellEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCell_ColIndex() {
-		return (EAttribute) cellEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getExcelElement() {
 		return excelElementEClass;
 	}
@@ -341,17 +288,8 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRowObject_Cell() {
-		return (EReference) rowObjectEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getRowObject_RowId() {
-		return (EAttribute) rowObjectEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) rowObjectEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -360,7 +298,25 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * @generated
 	 */
 	public EAttribute getRowObject_Isheader() {
-		return (EAttribute) rowObjectEClass.getEStructuralFeatures().get(2);
+		return (EAttribute) rowObjectEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRowObject_Cell() {
+		return (EReference) rowObjectEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRowObject_NextRow() {
+		return (EReference) rowObjectEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -377,8 +333,8 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getColObject_Cell() {
-		return (EReference) colObjectEClass.getEStructuralFeatures().get(0);
+	public EAttribute getColObject_ColId() {
+		return (EAttribute) colObjectEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -386,8 +342,17 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getColObject_ColId() {
-		return (EAttribute) colObjectEClass.getEStructuralFeatures().get(1);
+	public EReference getColObject_Cell() {
+		return (EReference) colObjectEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getColObject_NextColumn() {
+		return (EReference) colObjectEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -422,37 +387,33 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 		fileEClass = createEClass(FILE);
 		createEReference(fileEClass, FILE__SHEET);
 		createEAttribute(fileEClass, FILE__FILE_NAME);
-
-		folderEClass = createEClass(FOLDER);
-		createEReference(folderEClass, FOLDER__FILE);
-		createEReference(folderEClass, FOLDER__PARENT_FOLDER);
-		createEReference(folderEClass, FOLDER__SUB_FOLDER);
-		createEAttribute(folderEClass, FOLDER__NAME);
+		createEAttribute(fileEClass, FILE__PATH);
 
 		sheetEClass = createEClass(SHEET);
 		createEAttribute(sheetEClass, SHEET__SHEET_ID);
 		createEAttribute(sheetEClass, SHEET__SHEET_NAME);
 		createEReference(sheetEClass, SHEET__COLOBJECT);
 		createEReference(sheetEClass, SHEET__ROWOBJECT);
+		createEReference(sheetEClass, SHEET__CELL);
 
 		cellEClass = createEClass(CELL);
 		createEAttribute(cellEClass, CELL__TEXT);
 		createEAttribute(cellEClass, CELL__BACKGROUND_COLOR);
 		createEAttribute(cellEClass, CELL__CELL_COMMENTS);
 		createEAttribute(cellEClass, CELL__CELL_ID);
-		createEAttribute(cellEClass, CELL__ROW_INDEX);
-		createEAttribute(cellEClass, CELL__COL_INDEX);
 
 		excelElementEClass = createEClass(EXCEL_ELEMENT);
 
 		rowObjectEClass = createEClass(ROW_OBJECT);
-		createEReference(rowObjectEClass, ROW_OBJECT__CELL);
 		createEAttribute(rowObjectEClass, ROW_OBJECT__ROW_ID);
 		createEAttribute(rowObjectEClass, ROW_OBJECT__ISHEADER);
+		createEReference(rowObjectEClass, ROW_OBJECT__CELL);
+		createEReference(rowObjectEClass, ROW_OBJECT__NEXT_ROW);
 
 		colObjectEClass = createEClass(COL_OBJECT);
-		createEReference(colObjectEClass, COL_OBJECT__CELL);
 		createEAttribute(colObjectEClass, COL_OBJECT__COL_ID);
+		createEReference(colObjectEClass, COL_OBJECT__CELL);
+		createEReference(colObjectEClass, COL_OBJECT__NEXT_COLUMN);
 	}
 
 	/**
@@ -485,7 +446,6 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 
 		// Add supertypes to classes
 		fileEClass.getESuperTypes().add(this.getExcelElement());
-		folderEClass.getESuperTypes().add(this.getExcelElement());
 		sheetEClass.getESuperTypes().add(this.getExcelElement());
 		cellEClass.getESuperTypes().add(this.getExcelElement());
 
@@ -496,18 +456,7 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 				IS_ORDERED);
 		initEAttribute(getFile_FileName(), ecorePackage.getEString(), "fileName", null, 0, 1, File.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(folderEClass, Folder.class, "Folder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFolder_File(), this.getFile(), null, "file", null, 0, -1, Folder.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getFolder_ParentFolder(), this.getFolder(), null, "parentFolder", null, 1, 1, Folder.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFolder_SubFolder(), this.getFolder(), null, "subFolder", null, 0, -1, Folder.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFolder_Name(), ecorePackage.getEString(), "name", null, 0, 1, Folder.class, !IS_TRANSIENT,
+		initEAttribute(getFile_Path(), ecorePackage.getEString(), "path", null, 0, 1, File.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sheetEClass, Sheet.class, "Sheet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -521,6 +470,9 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 		initEReference(getSheet_Rowobject(), this.getRowObject(), null, "rowobject", null, 1, -1, Sheet.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSheet_Cell(), this.getCell(), null, "cell", null, 1, -1, Sheet.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(cellEClass, Cell.class, "Cell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCell_Text(), ecorePackage.getEString(), "text", null, 0, 1, Cell.class, !IS_TRANSIENT,
@@ -531,31 +483,33 @@ public class SimpleExcelPackageImpl extends EPackageImpl implements SimpleExcelP
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCell_CellId(), ecorePackage.getEInt(), "cellId", null, 0, 1, Cell.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCell_RowIndex(), ecorePackage.getEInt(), "rowIndex", null, 0, 1, Cell.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCell_ColIndex(), ecorePackage.getEInt(), "colIndex", null, 0, 1, Cell.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(excelElementEClass, ExcelElement.class, "ExcelElement", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(rowObjectEClass, RowObject.class, "RowObject", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRowObject_Cell(), this.getCell(), null, "cell", null, 1, -1, RowObject.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 		initEAttribute(getRowObject_RowId(), ecorePackage.getEInt(), "rowId", null, 0, 1, RowObject.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRowObject_Isheader(), ecorePackage.getEBoolean(), "isheader", null, 0, 1, RowObject.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRowObject_Cell(), this.getCell(), null, "cell", null, 1, -1, RowObject.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getRowObject_NextRow(), this.getRowObject(), null, "nextRow", null, 0, 1, RowObject.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(colObjectEClass, ColObject.class, "ColObject", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getColObject_Cell(), this.getCell(), null, "cell", null, 1, -1, ColObject.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
 		initEAttribute(getColObject_ColId(), ecorePackage.getEInt(), "colId", null, 0, 1, ColObject.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getColObject_Cell(), this.getCell(), null, "cell", null, 1, -1, ColObject.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getColObject_NextColumn(), this.getColObject(), null, "nextColumn", null, 0, 1, ColObject.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -31,15 +31,6 @@ public interface SimpleExcelFactory extends EFactory {
 	File createFile();
 
 	/**
-	 * Returns a new object of class '<em>Folder</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Folder</em>'.
-	 * @generated
-	 */
-	Folder createFolder();
-
-	/**
 	 * Returns a new object of class '<em>Sheet</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

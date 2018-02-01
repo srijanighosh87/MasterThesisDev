@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?eclipse version="3.0"?><plugin>
   <extension point="org.eclipse.emf.ecore.generated_package">
-    <package class="SimpleExcel.SimpleExcelPackage" genModel="model/Simpleexcel.genmodel" uri="platform:/plugin/SimpleExcel/model/SimpleExcel.ecore"/>
+    <package class="SimpleExcel.SimpleExcelPackage" genModel="model/SimpleExcel.genmodel" uri="platform:/resources/com.kaleidoscope.core.aux.simpleexcel/model/SimpleExcel.ecore"/>
   </extension>
 </plugin>

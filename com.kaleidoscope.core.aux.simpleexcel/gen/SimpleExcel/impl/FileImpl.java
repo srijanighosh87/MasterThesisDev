@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link SimpleExcel.impl.FileImpl#getSheet <em>Sheet</em>}</li>
  *   <li>{@link SimpleExcel.impl.FileImpl#getFileName <em>File Name</em>}</li>
+ *   <li>{@link SimpleExcel.impl.FileImpl#getPath <em>Path</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,6 +68,26 @@ public class FileImpl extends ExcelElementImpl implements File {
 	 * @ordered
 	 */
 	protected String fileName = FILE_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String path = PATH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -126,6 +147,27 @@ public class FileImpl extends ExcelElementImpl implements File {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPath() {
+		return path;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPath(String newPath) {
+		String oldPath = path;
+		path = newPath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimpleExcelPackage.FILE__PATH, oldPath, path));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -147,6 +189,8 @@ public class FileImpl extends ExcelElementImpl implements File {
 			return getSheet();
 		case SimpleExcelPackage.FILE__FILE_NAME:
 			return getFileName();
+		case SimpleExcelPackage.FILE__PATH:
+			return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -167,6 +211,9 @@ public class FileImpl extends ExcelElementImpl implements File {
 		case SimpleExcelPackage.FILE__FILE_NAME:
 			setFileName((String) newValue);
 			return;
+		case SimpleExcelPackage.FILE__PATH:
+			setPath((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -185,6 +232,9 @@ public class FileImpl extends ExcelElementImpl implements File {
 		case SimpleExcelPackage.FILE__FILE_NAME:
 			setFileName(FILE_NAME_EDEFAULT);
 			return;
+		case SimpleExcelPackage.FILE__PATH:
+			setPath(PATH_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -201,6 +251,8 @@ public class FileImpl extends ExcelElementImpl implements File {
 			return sheet != null && !sheet.isEmpty();
 		case SimpleExcelPackage.FILE__FILE_NAME:
 			return FILE_NAME_EDEFAULT == null ? fileName != null : !FILE_NAME_EDEFAULT.equals(fileName);
+		case SimpleExcelPackage.FILE__PATH:
+			return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -218,6 +270,8 @@ public class FileImpl extends ExcelElementImpl implements File {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (fileName: ");
 		result.append(fileName);
+		result.append(", path: ");
+		result.append(path);
 		result.append(')');
 		return result.toString();
 	}

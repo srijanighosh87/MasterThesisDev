@@ -28,14 +28,14 @@ public class ExcelMainClass {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String excelPath = "./Resources/new.xlsx";
+		String excelPath = "./Resources/Relationship.xlsx";
 		String intermediateTreePath = "./Resources/intermediateTree.xmi";
 
 		ResourceSet set = setResourceSet();
 
 		// calling EXCELAdapter
 		Path path = Paths.get(excelPath);
-		ExcelArtefactAdapter excelArtefactAdapter = new ExcelArtefactAdapter(path, intermediateTreePath);
+		ExcelArtefactAdapter excelArtefactAdapter = new ExcelArtefactAdapter(path);
 
 		// parse Excel
 		System.out.println("Parsing EXCEL file...");
@@ -50,9 +50,9 @@ public class ExcelMainClass {
 		System.out.println("Parsing completed...");
 
 		// unparse and regenerate EXCEL
-		System.out.println("Reading XMI file...");
-		excelArtefactAdapter.unparse();
-		System.out.println("EXCEL file regenrated ...");
+		//System.out.println("Reading XMI file...");
+		//excelArtefactAdapter.unparse();
+		//System.out.println("EXCEL file regenrated ...");
 	}
 
 	private static ResourceSet setResourceSet() {

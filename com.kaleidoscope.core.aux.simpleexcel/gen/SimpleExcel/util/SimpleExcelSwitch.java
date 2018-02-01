@@ -75,15 +75,6 @@ public class SimpleExcelSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case SimpleExcelPackage.FOLDER: {
-			Folder folder = (Folder) theEObject;
-			T result = caseFolder(folder);
-			if (result == null)
-				result = caseExcelElement(folder);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case SimpleExcelPackage.SHEET: {
 			Sheet sheet = (Sheet) theEObject;
 			T result = caseSheet(sheet);
@@ -140,21 +131,6 @@ public class SimpleExcelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFile(File object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Folder</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Folder</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFolder(Folder object) {
 		return null;
 	}
 

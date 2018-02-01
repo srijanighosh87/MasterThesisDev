@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link SimpleExcel.Sheet#getSheetName <em>Sheet Name</em>}</li>
  *   <li>{@link SimpleExcel.Sheet#getColobject <em>Colobject</em>}</li>
  *   <li>{@link SimpleExcel.Sheet#getRowobject <em>Rowobject</em>}</li>
+ *   <li>{@link SimpleExcel.Sheet#getCell <em>Cell</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,6 +110,22 @@ public interface Sheet extends ExcelElement {
 	 * @generated
 	 */
 	EList<RowObject> getRowobject();
+
+	/**
+	 * Returns the value of the '<em><b>Cell</b></em>' containment reference list.
+	 * The list contents are of type {@link SimpleExcel.Cell}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cell</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cell</em>' containment reference list.
+	 * @see SimpleExcel.SimpleExcelPackage#getSheet_Cell()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<Cell> getCell();
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

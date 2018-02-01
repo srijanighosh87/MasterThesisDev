@@ -58,8 +58,6 @@ public class SimpleExcelFactoryImpl extends EFactoryImpl implements SimpleExcelF
 		switch (eClass.getClassifierID()) {
 		case SimpleExcelPackage.FILE:
 			return createFile();
-		case SimpleExcelPackage.FOLDER:
-			return createFolder();
 		case SimpleExcelPackage.SHEET:
 			return createSheet();
 		case SimpleExcelPackage.CELL:
@@ -81,16 +79,6 @@ public class SimpleExcelFactoryImpl extends EFactoryImpl implements SimpleExcelF
 	public File createFile() {
 		FileImpl file = new FileImpl();
 		return file;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Folder createFolder() {
-		FolderImpl folder = new FolderImpl();
-		return folder;
 	}
 
 	/**

@@ -2,6 +2,7 @@
  */
 package SimpleExcel.impl;
 
+import SimpleExcel.Cell;
 import SimpleExcel.ColObject;
 import SimpleExcel.RowObject;
 import SimpleExcel.Sheet;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link SimpleExcel.impl.SheetImpl#getSheetName <em>Sheet Name</em>}</li>
  *   <li>{@link SimpleExcel.impl.SheetImpl#getColobject <em>Colobject</em>}</li>
  *   <li>{@link SimpleExcel.impl.SheetImpl#getRowobject <em>Rowobject</em>}</li>
+ *   <li>{@link SimpleExcel.impl.SheetImpl#getCell <em>Cell</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,6 +102,16 @@ public class SheetImpl extends ExcelElementImpl implements Sheet {
 	 * @ordered
 	 */
 	protected EList<RowObject> rowobject;
+
+	/**
+	 * The cached value of the '{@link #getCell() <em>Cell</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCell()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Cell> cell;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -195,6 +207,18 @@ public class SheetImpl extends ExcelElementImpl implements Sheet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Cell> getCell() {
+		if (cell == null) {
+			cell = new EObjectContainmentEList<Cell>(Cell.class, this, SimpleExcelPackage.SHEET__CELL);
+		}
+		return cell;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -202,6 +226,8 @@ public class SheetImpl extends ExcelElementImpl implements Sheet {
 			return ((InternalEList<?>) getColobject()).basicRemove(otherEnd, msgs);
 		case SimpleExcelPackage.SHEET__ROWOBJECT:
 			return ((InternalEList<?>) getRowobject()).basicRemove(otherEnd, msgs);
+		case SimpleExcelPackage.SHEET__CELL:
+			return ((InternalEList<?>) getCell()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -222,6 +248,8 @@ public class SheetImpl extends ExcelElementImpl implements Sheet {
 			return getColobject();
 		case SimpleExcelPackage.SHEET__ROWOBJECT:
 			return getRowobject();
+		case SimpleExcelPackage.SHEET__CELL:
+			return getCell();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -249,6 +277,10 @@ public class SheetImpl extends ExcelElementImpl implements Sheet {
 			getRowobject().clear();
 			getRowobject().addAll((Collection<? extends RowObject>) newValue);
 			return;
+		case SimpleExcelPackage.SHEET__CELL:
+			getCell().clear();
+			getCell().addAll((Collection<? extends Cell>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -273,6 +305,9 @@ public class SheetImpl extends ExcelElementImpl implements Sheet {
 		case SimpleExcelPackage.SHEET__ROWOBJECT:
 			getRowobject().clear();
 			return;
+		case SimpleExcelPackage.SHEET__CELL:
+			getCell().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -293,6 +328,8 @@ public class SheetImpl extends ExcelElementImpl implements Sheet {
 			return colobject != null && !colobject.isEmpty();
 		case SimpleExcelPackage.SHEET__ROWOBJECT:
 			return rowobject != null && !rowobject.isEmpty();
+		case SimpleExcelPackage.SHEET__CELL:
+			return cell != null && !cell.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

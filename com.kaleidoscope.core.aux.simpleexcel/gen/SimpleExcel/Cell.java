@@ -17,8 +17,6 @@ package SimpleExcel;
  *   <li>{@link SimpleExcel.Cell#getBackgroundColor <em>Background Color</em>}</li>
  *   <li>{@link SimpleExcel.Cell#getCellComments <em>Cell Comments</em>}</li>
  *   <li>{@link SimpleExcel.Cell#getCellId <em>Cell Id</em>}</li>
- *   <li>{@link SimpleExcel.Cell#getRowIndex <em>Row Index</em>}</li>
- *   <li>{@link SimpleExcel.Cell#getColIndex <em>Col Index</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,58 +128,6 @@ public interface Cell extends ExcelElement {
 	 * @generated
 	 */
 	void setCellId(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Row Index</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Row Index</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Row Index</em>' attribute.
-	 * @see #setRowIndex(int)
-	 * @see SimpleExcel.SimpleExcelPackage#getCell_RowIndex()
-	 * @model
-	 * @generated
-	 */
-	int getRowIndex();
-
-	/**
-	 * Sets the value of the '{@link SimpleExcel.Cell#getRowIndex <em>Row Index</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Row Index</em>' attribute.
-	 * @see #getRowIndex()
-	 * @generated
-	 */
-	void setRowIndex(int value);
-
-	/**
-	 * Returns the value of the '<em><b>Col Index</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Col Index</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Col Index</em>' attribute.
-	 * @see #setColIndex(int)
-	 * @see SimpleExcel.SimpleExcelPackage#getCell_ColIndex()
-	 * @model
-	 * @generated
-	 */
-	int getColIndex();
-
-	/**
-	 * Sets the value of the '{@link SimpleExcel.Cell#getColIndex <em>Col Index</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Col Index</em>' attribute.
-	 * @see #getColIndex()
-	 * @generated
-	 */
-	void setColIndex(int value);
 	// <-- [user code injected with eMoflon]
 
 	// [user code injected with eMoflon] -->

@@ -24,9 +24,8 @@ public class ExcelArtefactAdapter implements ArtefactAdapter<ExcelElement, Path>
 	private Path path;
 	private String intermediateTreePath;
 	
-	public ExcelArtefactAdapter(Path path, String intermediateTreePath) {
+	public ExcelArtefactAdapter(Path path) {
 		this.path = path;
-		this.intermediateTreePath = intermediateTreePath;
 		this.model = Optional.empty();
 	}
 

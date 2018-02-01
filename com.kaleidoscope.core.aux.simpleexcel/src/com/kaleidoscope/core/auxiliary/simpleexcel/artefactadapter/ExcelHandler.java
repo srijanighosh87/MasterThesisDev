@@ -20,12 +20,12 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFColor;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import com.kaleidoscope.core.auxiliary.simpleexcel.utils.Constants;
+
 import SimpleExcel.ExcelElement;
-import SimpleExcel.Folder;
 import SimpleExcel.RowObject;
 import SimpleExcel.SimpleExcelFactory;
 
@@ -40,6 +40,8 @@ public class ExcelHandler {
 	private Workbook workBook;
 	private Optional<ExcelElement> model;
 	private int rowId = 1;
+
+	private int cellId = 0;
 
 	public ExcelHandler(Path path, Optional<ExcelElement> model) {
 		this.path = path;
@@ -61,14 +63,15 @@ public class ExcelHandler {
 			this.workBook = new XSSFWorkbook(excelFile);
 
 			// extract file name, folder Name
-			List<String> fileAndFolder = getFileAndFolderName(path);
-			Folder simpleFolder = SimpleExcelFactory.eINSTANCE.createFolder();
-			simpleFolder.setName(fileAndFolder.get(1));
-			model = Optional.of(simpleFolder);
+			// List<String> fileAndFolder = getFileAndFolderName(path);
 
 			SimpleExcel.File simpleFile = SimpleExcelFactory.eINSTANCE.createFile();
-			simpleFile.setFileName(fileAndFolder.get(0));
-			simpleFolder.getFile().add(simpleFile);
+			String absoluteFileName = path.toAbsolutePath().toString();
+			if (absoluteFileName.contains("\\.\\")) {
+				absoluteFileName = absoluteFileName.replace("\\.\\", "\\");
+			}
+			simpleFile.setFileName(absoluteFileName);
+			model = Optional.of(simpleFile);
 
 			// iterate through all the sheets
 			for (int sheetCount = 0; sheetCount < workBook.getNumberOfSheets(); sheetCount++) {
@@ -88,31 +91,6 @@ public class ExcelHandler {
 	}
 
 	/**
-	 * Returns FIle and Folder name
-	 * @param path
-	 * @return
-	 */
-	private List<String> getFileAndFolderName(Path path) {
-		List<String> fileAndFolderName = new ArrayList<String>();
-		String absoluteFileName = path.toAbsolutePath().toString();
-
-		// retrieve fileName
-		int indexOfSlash = absoluteFileName.lastIndexOf("\\");
-		String fileName = absoluteFileName.substring(indexOfSlash + 1, absoluteFileName.length());
-
-		// retrieve folder name
-		String folderName = absoluteFileName.substring(0, indexOfSlash);
-		if (folderName.contains("\\.\\")) {
-			folderName = folderName.replace("\\.\\", "\\");
-		}
-
-		fileAndFolderName.add(fileName);
-		fileAndFolderName.add(folderName);
-
-		return fileAndFolderName;
-	}
-
-	/**
 	 * Read data from Sheet
 	 * 
 	 * @param sheetCount
@@ -121,23 +99,46 @@ public class ExcelHandler {
 	 */
 	private void readSheet(Sheet currentSheet, int sheetCount, SimpleExcel.Sheet simpleSheet) {
 		System.out.println("Reading from Sheet :" + this.workBook.getSheetName(sheetCount));
-		
+
 		simpleSheet.setSheetName(currentSheet.getSheetName());
 		// read the whole sheet
+		List<Row> rowList = new ArrayList<Row>();
 		Iterator<Row> rowIterator = currentSheet.iterator();
 		while (rowIterator.hasNext()) {
 			Row currentRow = rowIterator.next();
-			// create Row Object for Model - check for blank rows
+			rowList.add(currentRow);
+		}
+
+		setRowRelations(rowList, simpleSheet, 0);
+		
+		System.out.println();
+
+	}
+
+	private RowObject setRowRelations(List<Row> rowList, SimpleExcel.Sheet simpleSheet, int index) {
+		Row currentRow = null;
+		RowObject nextRowObject = SimpleExcelFactory.eINSTANCE.createRowObject();
+		if (index < rowList.size()) {
+			currentRow = rowList.get(index);
 			if (!rowIsEmpty(currentRow)) {
 				RowObject rowObject = SimpleExcelFactory.eINSTANCE.createRowObject();
 				if (rowId == 1)
 					rowObject.setIsheader(true);
 				rowObject.setRowId(rowId++);
-				readRow(currentRow, rowObject);
+				
+				
+				readRow(currentRow, rowObject, simpleSheet);
+				
+				nextRowObject = setRowRelations(rowList, simpleSheet, index + 1);
+				
+				if (nextRowObject != null && !(nextRowObject.getRowId() <= 0))
+					rowObject.setNextRow(nextRowObject);
+				
 				simpleSheet.getRowobject().add(rowObject);
+				return rowObject;
 			}
-
 		}
+		return nextRowObject;
 	}
 
 	/**
@@ -164,8 +165,9 @@ public class ExcelHandler {
 	 * 
 	 * @param currentRow
 	 * @param rowObject
+	 * @param simpleSheet 
 	 */
-	private void readRow(Row currentRow, RowObject rowObject) {
+	private void readRow(Row currentRow, RowObject rowObject, SimpleExcel.Sheet simpleSheet) {
 		Iterator<Cell> cellIterator = currentRow.iterator();
 		while (cellIterator.hasNext()) {
 			Cell currentCell = cellIterator.next();
@@ -175,6 +177,7 @@ public class ExcelHandler {
 			// cread attributes for every cell
 			readCell(cellObject, currentCell);
 			rowObject.getCell().add(cellObject);
+			simpleSheet.getCell().add(cellObject);
 		}
 	}
 
@@ -193,26 +196,22 @@ public class ExcelHandler {
 				: "";
 
 		// add attributes to the cellObject
-		cellObject.setRowIndex(rowIndex);
-		cellObject.setColIndex(colIndex);
 		if (!comment.equals("")) // ignore empty comments
 			cellObject.setCellComments(comment);
 		if (!currentCell.toString().equals(""))
 			cellObject.setText(currentCell.toString());
-
-		//TODO - not working 
-		// get Cell color 
-		/*XSSFColor fillBackGroundXssfColor = ((XSSFCellStyle) currentCell.getCellStyle()).getFillBackgroundXSSFColor();
-		if (null != fillBackGroundXssfColor) {
-			byte[] a = fillBackGroundXssfColor.getRGB();
-			String color = "";
-			if (a != null && a.length == 3)
-				color = a[0] + "," + a[1] + "," + a[2];
-			if (null != color) {
-				if (!color.isEmpty())
-					cellObject.setBackgroundColor(color);
-			}
-		}*/
-
+		//cellObject.setCellId(cellId ++);
+		// get cell colors
+		XSSFColor xssfColor = (XSSFColor) currentCell.getCellStyle().getFillForegroundColorColor();
+		if (xssfColor != null) {
+			String argbHex = xssfColor.getARGBHex();
+			System.out.println("row:" + rowIndex + ",col:" + colIndex + " color: " + argbHex);
+			if (argbHex.toString().compareTo(Constants.RED_ARGB) == 0)
+				cellObject.setBackgroundColor("RED");
+			if (argbHex.toString().compareTo(Constants.YELLOW_ARGB) == 0)
+				cellObject.setBackgroundColor("YELLOW");
+			if (argbHex.toString().compareTo(Constants.GREEN_ARGB) == 0)
+				cellObject.setBackgroundColor("GREEN");
+		}
 	}
 }
