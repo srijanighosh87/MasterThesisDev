@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="ASCII"?>
 <SimpleExcel:File xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:SimpleExcel="platform:/resources/com.kaleidoscope.core.aux.simpleexcel/model/SimpleExcel.ecore" fileName="D:\WorkSpaces\Kaleidoscope Development\MasterThesisDev\com.kaleidoscope.core.aux.simpleexcel\Resources\Relationship.xlsx">
-  <sheet sheetName="RelationShip">
-    <rowobject cell="//@sheet.0/@cell.4 //@sheet.0/@cell.5 //@sheet.0/@cell.6 //@sheet.0/@cell.7"/>
-    <rowobject cell="//@sheet.0/@cell.0 //@sheet.0/@cell.1 //@sheet.0/@cell.2 //@sheet.0/@cell.3" nextRow="//@sheet.0/@rowobject.0"/>
+  <sheet sheetName="Sheet1">
+    <colobject cell="//@sheet.0/@cell.0 //@sheet.0/@cell.4 //@sheet.0/@cell.8" nextColumn="//@sheet.0/@colobject.1"/>
+    <colobject cell="//@sheet.0/@cell.1 //@sheet.0/@cell.5 //@sheet.0/@cell.9 //@sheet.0/@cell.12 //@sheet.0/@cell.14 //@sheet.0/@cell.16" nextColumn="//@sheet.0/@colobject.2"/>
+    <colobject cell="//@sheet.0/@cell.2 //@sheet.0/@cell.6 //@sheet.0/@cell.10" nextColumn="//@sheet.0/@colobject.3"/>
+    <colobject cell="//@sheet.0/@cell.3 //@sheet.0/@cell.7 //@sheet.0/@cell.11 //@sheet.0/@cell.13 //@sheet.0/@cell.15 //@sheet.0/@cell.17"/>
+    <rowobject cell="//@sheet.0/@cell.16 //@sheet.0/@cell.17"/>
+    <rowobject cell="//@sheet.0/@cell.14 //@sheet.0/@cell.15" nextRow="//@sheet.0/@rowobject.0"/>
+    <rowobject cell="//@sheet.0/@cell.12 //@sheet.0/@cell.13" nextRow="//@sheet.0/@rowobject.1"/>
+    <rowobject cell="//@sheet.0/@cell.8 //@sheet.0/@cell.9 //@sheet.0/@cell.10 //@sheet.0/@cell.11" nextRow="//@sheet.0/@rowobject.2"/>
+    <rowobject cell="//@sheet.0/@cell.4 //@sheet.0/@cell.5 //@sheet.0/@cell.6 //@sheet.0/@cell.7" nextRow="//@sheet.0/@rowobject.3"/>
+    <rowobject cell="//@sheet.0/@cell.0 //@sheet.0/@cell.1 //@sheet.0/@cell.2 //@sheet.0/@cell.3" nextRow="//@sheet.0/@rowobject.4"/>
     <cell text="Components"/>
     <cell text="Dependencies" cellId="1"/>
     <cell text="Documentation" cellId="2"/>
     <cell text="Review" cellId="3"/>
-    <cell text="org.emoflon.ibex.tgg.core.language" cellId="4"/>
-    <cell cellId="5"/>
-    <cell cellId="6"/>
-    <cell cellId="7"/>
+    <cell text="org.emoflon.ibex.tgg.core.language" backgroundColor="FFF79646" cellId="4"/>
+    <cell backgroundColor="FFF79646" cellId="5"/>
+    <cell backgroundColor="FFF79646" cellId="6"/>
+    <cell backgroundColor="FFF79646" cellId="7"/>
+    <cell text="org.emoflon.ibex.tgg.core.runtime" backgroundColor="FFF79646" cellId="8"/>
+    <cell backgroundColor="FFF79646" cellId="9"/>
+    <cell backgroundColor="FFF79646" cellId="10"/>
+    <cell backgroundColor="FFF79646" cellId="11"/>
+    <cell text="(org.emoflon.ibex.tgg.ide).IbexTGGBuilderExtension" cellId="12"/>
+    <cell backgroundColor="FFFF0000" cellId="13"/>
+    <cell text="(org.emoflon.ibex.tgg.ide).IbexTGGBuilderExtension_1" cellId="14"/>
+    <cell backgroundColor="FFFFFF00" cellId="15"/>
+    <cell text="(org.emoflon.ibex.tgg.ide).IbexTGGBuilderExtension_2" cellId="16"/>
+    <cell backgroundColor="FF00B050" cellId="17"/>
   </sheet>
 </SimpleExcel:File>

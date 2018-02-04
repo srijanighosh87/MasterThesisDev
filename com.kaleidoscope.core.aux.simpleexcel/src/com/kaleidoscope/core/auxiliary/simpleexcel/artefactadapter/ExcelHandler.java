@@ -26,6 +26,7 @@ import org.eclipse.emf.common.util.EList;
 
 import com.kaleidoscope.core.auxiliary.simpleexcel.utils.Constants;
 
+import SimpleExcel.ColObject;
 import SimpleExcel.ExcelElement;
 import SimpleExcel.RowObject;
 import SimpleExcel.SimpleExcelFactory;
@@ -43,6 +44,7 @@ public class ExcelHandler {
 
 	private int rowId = Constants.INIT_ROW;
 	private int cellId = Constants.INIT_CELL;
+	private List<ColObject> columnObjectList = new ArrayList();
 
 	public ExcelHandler(Path path, Optional<ExcelElement> model) {
 		this.path = path;
@@ -108,25 +110,65 @@ public class ExcelHandler {
 			rowList.add(currentRow);
 		}
 
+		// get max number of cell in a row - set that as column number
+		int maxColumnNumber = 0;
+		for (Row row : rowList) {
+			int lastRowNum = row.getLastCellNum();
+			if (lastRowNum > 0)
+				maxColumnNumber = lastRowNum;
+		}
+
+		for (int colIndex = 0; colIndex < maxColumnNumber; colIndex++) {
+			ColObject columnObject = SimpleExcelFactory.eINSTANCE.createColObject();
+			columnObjectList.add(columnObject);
+			simpleSheet.getColobject().add(columnObject);
+		}
+
+		// set column relations
+		for (int index = 0; index < columnObjectList.size(); index++) {
+			if (index < maxColumnNumber - 1) {
+				columnObjectList.get(index).setNextColumn(columnObjectList.get(index+1));
+			}
+		}
+
 		setRowRelations(rowList, simpleSheet, 0);
 
 		// create Columns
-		createColumnObjects(simpleSheet);
+		// createColumnObjects(simpleSheet, rowList);
 	}
 
 	/**
 	 * This method reads sheets, Rows from them and creates columnObjects
 	 * 
 	 * @param simpleSheet
+	 * @param rowList
 	 */
-	private void createColumnObjects(SimpleExcel.Sheet simpleSheet) {
-		EList<RowObject> rowObjects = simpleSheet.getRowobject();
-		for (RowObject rowObject : rowObjects) {
-			if (rowObject != null) {
-				EList<SimpleExcel.Cell> cells = rowObject.getCell();
-				for (SimpleExcel.Cell cell : cells) {
+	private void createColumnObjects(SimpleExcel.Sheet simpleSheet, List<Row> rowList) {
+		// get max number of cell in a row - set that as column number
+		int maxColumnNumber = 0;
+		for (Row row : rowList) {
+			int lastRowNum = row.getLastCellNum();
+			if (lastRowNum > 0)
+				maxColumnNumber = lastRowNum;
+		}
+
+		// System.out.println("Number of columns "+ columnNumber);
+
+		for (int colIndex = 0; colIndex < maxColumnNumber; colIndex++) {
+			ColObject columnObject = SimpleExcelFactory.eINSTANCE.createColObject();
+
+			// add cells to columns - iterate RowOBject for that
+			EList<RowObject> rowObjectList = simpleSheet.getRowobject();
+			for (RowObject rowObject : rowObjectList) {
+				EList<SimpleExcel.Cell> cellList = rowObject.getCell();
+				if (cellList != null && cellList.size() > 0) {
+					SimpleExcel.Cell cell = rowObject.getCell().get(colIndex);
+					columnObject.getCell().add(cell);
 				}
 			}
+
+			// add columnObject to Sheet
+			simpleSheet.getColobject().add(columnObject);
 		}
 	}
 
@@ -140,21 +182,21 @@ public class ExcelHandler {
 	 */
 	private RowObject setRowRelations(List<Row> rowList, SimpleExcel.Sheet simpleSheet, int index) {
 		Row currentRow = null;
-		//RowObject nextRowObject = SimpleExcelFactory.eINSTANCE.createRowObject();
+		// RowObject nextRowObject = SimpleExcelFactory.eINSTANCE.createRowObject();
 		RowObject nextRowObject = null;
 		if (index < rowList.size()) {
 			currentRow = rowList.get(index);
 			if (!rowIsEmpty(currentRow)) {
 				RowObject rowObject = SimpleExcelFactory.eINSTANCE.createRowObject();
-				//if (rowId == 1)
-					//rowObject.setIsheader(true);
-				//rowObject.setRowId(rowId++);
+				// if (rowId == 1)
+				// rowObject.setIsheader(true);
+				// rowObject.setRowId(rowId++);
 
 				readRow(currentRow, rowObject, simpleSheet);
 
 				nextRowObject = setRowRelations(rowList, simpleSheet, index + 1);
 
-				//if (nextRowObject != null && !(nextRowObject.getRowId() <= 0))
+				// if (nextRowObject != null && !(nextRowObject.getRowId() <= 0))
 				if (nextRowObject != null)
 					rowObject.setNextRow(nextRowObject);
 
@@ -201,6 +243,11 @@ public class ExcelHandler {
 			// cread attributes for every cell
 			readCell(cellObject, currentCell);
 			rowObject.getCell().add(cellObject);
+
+			// add cell to colObject
+			columnObjectList.get(currentCell.getAddress().getColumn()).getCell().add(cellObject);
+
+			// add cell to simpleSheet
 			simpleSheet.getCell().add(cellObject);
 		}
 	}
@@ -230,12 +277,14 @@ public class ExcelHandler {
 		if (xssfColor != null) {
 			String argbHex = xssfColor.getARGBHex();
 			System.out.println("row:" + rowIndex + ",col:" + colIndex + " color: " + argbHex);
-			if (argbHex.toString().compareTo(Constants.RED_ARGB) == 0)
+			/*if (argbHex.toString().compareTo(Constants.RED_ARGB) == 0)
 				cellObject.setBackgroundColor("RED");
 			if (argbHex.toString().compareTo(Constants.YELLOW_ARGB) == 0)
 				cellObject.setBackgroundColor("YELLOW");
 			if (argbHex.toString().compareTo(Constants.GREEN_ARGB) == 0)
 				cellObject.setBackgroundColor("GREEN");
+			*/
+			cellObject.setBackgroundColor(argbHex);
 		}
 	}
 }
