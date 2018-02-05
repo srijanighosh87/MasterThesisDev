@@ -5,6 +5,7 @@ package com.kaleidoscope.core.auxiliary.simpleexcel.artefactadapter;
 
 
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Optional;
 
 import org.apache.log4j.Logger;
@@ -24,9 +25,10 @@ public class ExcelArtefactAdapter implements ArtefactAdapter<ExcelElement, Path>
 	private Path path;
 	private String intermediateTreePath;
 	
-	public ExcelArtefactAdapter(Path path) {
+	public ExcelArtefactAdapter(Path path, String intermediateTreePath) {
 		this.path = path;
 		this.model = Optional.empty();
+		this.intermediateTreePath = intermediateTreePath;
 	}
 
 	@Override
@@ -38,8 +40,6 @@ public class ExcelArtefactAdapter implements ArtefactAdapter<ExcelElement, Path>
 
 	@Override
 	public void unparse() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

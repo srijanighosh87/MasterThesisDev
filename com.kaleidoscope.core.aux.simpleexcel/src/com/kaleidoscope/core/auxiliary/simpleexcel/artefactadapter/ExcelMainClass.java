@@ -35,7 +35,7 @@ public class ExcelMainClass {
 
 		// calling EXCELAdapter
 		Path path = Paths.get(excelPath);
-		ExcelArtefactAdapter excelArtefactAdapter = new ExcelArtefactAdapter(path);
+		ExcelArtefactAdapter excelArtefactAdapter = new ExcelArtefactAdapter(path, intermediateTreePath);
 
 		// parse Excel
 		System.out.println("Parsing EXCEL file...");
@@ -50,9 +50,10 @@ public class ExcelMainClass {
 		System.out.println("Parsing completed...");
 
 		// unparse and regenerate EXCEL
-		//System.out.println("Reading XMI file...");
-		//excelArtefactAdapter.unparse();
-		//System.out.println("EXCEL file regenrated ...");
+		System.out.println("Reading XMI file...");
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi",  new XMIResourceFactoryImpl());
+		excelArtefactAdapter.unparse();
+		System.out.println("EXCEL file regenrated ...");
 	}
 
 	private static ResourceSet setResourceSet() {
